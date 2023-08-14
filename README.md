@@ -1,4 +1,4 @@
-# Mask Detection using Haar Cascade and TensorFlow
+# Mask Detection for codeClause Internship
 
 ## Table of Contents
 
