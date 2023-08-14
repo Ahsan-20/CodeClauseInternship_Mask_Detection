@@ -1,6 +1,5 @@
 # Mask Detection using Haar Cascade and TensorFlow
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Table of Contents
 
