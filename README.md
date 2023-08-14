@@ -36,9 +36,8 @@ Make sure you have the following prerequisites installed:
 ### Installation
 
 1. Clone or download the repository to your local machine.
-2. Install the required libraries by running: `pip install -r requirements.txt`
-3. Preprocess the dataset using the provided data augmentation techniques (details in [Loading and Preprocessing the Dataset](#loading-and-preprocessing-the-dataset)).
-4. Build, train, and evaluate the mask detection model (steps in [Building the Model](#building-the-model), [Compiling and Training the Model](#compiling-and-training-the-model), and [Evaluating the Model and Saving it](#evaluating-the-model-and-saving-it)).
+2. Preprocess the dataset using the provided data augmentation techniques (details in [Loading and Preprocessing the Dataset](#loading-and-preprocessing-the-dataset)).
+3. Build, train, and evaluate the mask detection model (steps in [Building the Model](#building-the-model), [Compiling and Training the Model](#compiling-and-training-the-model), and [Evaluating the Model and Saving it](#evaluating-the-model-and-saving-it)).
 
 ## Importing Necessary Libraries
 
