@@ -1,6 +1,5 @@
 # Mask Detection using Haar Cascade and TensorFlow
 
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -14,11 +13,10 @@
 - [Compiling and Training the Model](#compiling-and-training-the-model)
 - [Evaluating the Model and Saving it](#evaluating-the-model-and-saving-it)
 - [Conclusion](#conclusion)
-- [Further Enhancements](#further-enhancements)
 
 ## Introduction
 
-This project focuses on building a mask detection system that can determine whether a person is wearing a mask or not using a combination of Haar Cascade for face detection and a custom-trained TensorFlow model for mask classification. The goal is to contribute to public health and safety measures by automating the process of mask detection in images.
+This project focuses on building a mask detection system that can determine whether a person is wearing a mask or not using a combination of Haar Cascade for face detection and a custom-trained TensorFlow model for mask classification. The project was developed as part of an internship at Code Clause.
 
 ## Dataset
 
@@ -52,11 +50,11 @@ The dataset is loaded using the `ImageDataGenerator` class, which includes data 
 
 ## Building the Model
 
-The model architecture is based on a pre-trained MobileNetV2 model, which acts as a feature extractor. The custom head layers are constructed to suit the mask detection task, including average pooling, flattening, dense layers, and dropout to prevent overfitting. The final output layer employs a sigmoid activation function for binary classification.
+We load a pre-trained MobileNetV2 model as the base model. MobileNetV2 is a popular convolutional neural network architecture that is often used as a feature extractor. The base model's top (fully connected) layers are removed since we'll replace them with our custom head layers. We construct the custom head layers that are specific to our mask detection task. These layers include average pooling, flattening, dense (fully connected) layers, and a dropout layer to prevent overfitting. The final output layer has a single neuron with a sigmoid activation function, which is suitable for binary classification tasks like mask detection. The base model's layers are frozen to prevent their weights from being updated during training. We'll fine-tune these layers later if necessary.
 
 ## Compiling and Training the Model
 
-The model is compiled using the Adam optimizer with a low learning rate and weight decay. Binary cross-entropy is chosen as the loss function for the binary classification task. The training process involves iterating through the training data for a fixed number of epochs while updating the model's weights to minimize the loss.
+The model is compiled using the Adam optimizer with a low learning rate and weight decay. We use binary cross-entropy as the loss function since we have a binary classification task. The fit function is used to train the model. We provide the training generator and specify the number of steps per epoch. The number of steps is calculated as samples // batch_size, ensuring that each image is used once per epoch. The model is trained for a fixed number of epochs (in this example, 20). During each epoch, the training data is iterated through multiple times, and the model's weights are updated to minimize the loss.
 
 ## Evaluating the Model and Saving it
 
@@ -64,20 +62,4 @@ After training, the model's performance is evaluated on the training dataset. Th
 
 ## Conclusion
 
-This project presents a mask detection system that combines Haar Cascade for face detection and a custom-trained TensorFlow model for mask classification. By accurately identifying whether individuals are wearing masks, the system can contribute to public health measures and safety protocols.
-
-## Further Enhancements
-
-While the provided code offers a solid foundation for mask detection, further enhancements can be considered:
-
-- Fine-tuning the model: Experiment with unfreezing some layers of the base model for fine-tuning to improve performance.
-- Hyperparameter tuning: Optimize learning rates, batch sizes, and other hyperparameters for better results.
-- Real-time detection: Implement real-time mask detection using the trained model on video streams or webcam feeds.
-- Deploy the model: Convert the trained model to a deployable format (such as TensorFlow Lite) for easy integration into applications or devices.
-
-Remember that this readme provides a comprehensive overview of the project, but additional documentation and code comments are essential for others to understand and contribute effectively to the project.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
-
+This project presents a mask detection system that combines Haar Cascade for face detection and a custom-trained TensorFlow model for mask classification. By accurately identifying whether individuals are wearing masks...
